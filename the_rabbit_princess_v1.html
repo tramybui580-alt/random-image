@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rabbit Princess - Tarot Reading</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #1a1a1a; /* Màu tối hợp với phong cách Dark Whimsical */
+            color: #f4e4bc;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            color: #d4af37; /* Màu vàng đồng */
+        }
+
+        #card-container {
+            margin-bottom: 30px;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #tarot-card {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 3px solid #333;
+            display: none; /* Ẩn ảnh lúc đầu */
+        }
+
+        #card-back {
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 2/3.5;
+            background: #222;
+            border: 3px dashed #444;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-style: italic;
+        }
+
+        button {
+            background-color: #d4af37;
+            color: #1a1a1a;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+            background-color: #f4e4bc;
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>THE RABBIT PRINCESS</h1>
+
+        <div id="card-container">
+            <div id="card-back">Hãy chạm để xem thông điệp</div>
+            <img id="tarot-card" src="" alt="Tarot Card">
+        </div>
+
+        <button onclick="drawCard()">Chạm để bốc bài</button>
+
+        <div class="footer">
+            © 2026 Bùi Trà My - HAU Graphic Design
+        </div>
+    </div>
+
+    <script>
+        // My hãy thay danh sách link ảnh của bạn vào đây
+        const cards = [
+            "https://i.pinimg.com/736x/9e/d3/71/9ed3716b09dc7ae04994131d086db9eb.jpg",
+            "https://i.pinimg.com/736x/c0/66/97/c066975c8beaef0861628a6d5858e1c8.jpg"
+            // Thêm phẩy và dán thêm link ảnh vào đây (78 lá)
+        ];
+
+        function drawCard() {
+            const cardImg = document.getElementById('tarot-card');
+            const cardBack = document.getElementById('card-back');
+            
+            // Hiệu ứng bốc ngẫu nhiên
+            const randomIndex = Math.floor(Math.random() * cards.length);
+            
+            // Cập nhật ảnh
+            cardImg.src = cards[randomIndex];
+            
+            // Hiện ảnh và ẩn mặt sau
+            cardBack.style.display = 'none';
+            cardImg.style.display = 'block';
+            
+            // Thêm một chút hiệu ứng rung khi bốc cho sinh động
+            cardImg.style.animation = 'none';
+            cardImg.offsetHeight; // trigger reflow
+            cardImg.style.animation = 'drawEffect 0.5s ease-out';
+        }
+    </script>
+
+    <style>
+        @keyframes drawEffect {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</body>
+</html>
