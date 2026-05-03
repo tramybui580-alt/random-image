@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Random Image</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<img id="img">
+
+<script>
+const images = [
+  "https://i.pinimg.com/1200x/fa/4b/25/fa4b25f33a55e4758ca62b151bd64d7f.jpg",
+  "https://i.pinimg.com/736x/e6/9f/03/e69f03e98eeb2d314b6c07b92e76ea85.jpg",
+  "https://i.pinimg.com/736x/9f/b9/03/9fb903870593361363164785681258c4.jpg"
+];
+
+const randomIndex = Math.floor(Math.random() * images.length);
+document.getElementById("img").src = images[randomIndex];
+</script>
+
+</body>
+</html>
